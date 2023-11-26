@@ -74,12 +74,16 @@ spark-submit --packages ai.catboost:catboost-spark_3.0_2.12:1.2.2 app.py
 В основе концепции Airflow лежит DAG — направленный ациклический граф. 
 В проекте даги предстваляют из себя следующие процессы из задач (тасок - "tasks"), выполняемых последовательно:
 
-dag_app.py:
-__sftp_task2 >> exec_task2 >> send_email_task__
+dag_app.py:  
+
+__sftp_task2 >> exec_task2 >> send_email_task__  
+
 Запускает трансфер скрипта приложения на Spark-кластер, затем его запуск и отправку отчета о запуске процесса
 
-dag_new_data.py:
-__sftp_task1 >> exec_task2 >> send_email_task__
+dag_new_data.py:  
+
+__sftp_task1 >> exec_task2 >> send_email_task__  
+
 Запускает трансфер скрипта генерации новых данных на Spark-кластер, затем его запуск и отправку отчета о поступлении новых данных
 
 В папке dags можно найти два вышеуказанных дага, а так же даг с PythonOperator и зависимостями в папке bots, где находится пример текста сообщения "Testing success", направляемого на email получателя.
