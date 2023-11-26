@@ -97,3 +97,13 @@ __sftp_task1 >> exec_task2 >> send_email_task__
 <image src="screens/12. good log 3.jpg" alt="log">
 <image src="screens/13. email dag.jpg" alt="log_email">
 
+Убедиться в корректной рассылке email-сообщений можно, используя 2 собственных google-ящика:
+
+<image src="screens/15. email send received.jpg" alt="email">
+
+
+
+
+
+
+
