@@ -4,7 +4,7 @@ def send():
     try:
         x=smtplib.SMTP('smtp.gmail.com',587)
         x.starttls()
-        x.login("noparanoyaaa@gmail.com", "uqtqjblalehilmun")
+        x.login("noparanoyaaa@gmail.com", "")
         subject="Testing"
         body_text="Testing success"
         message="Subject: {}{}".format(subject,body_text)
