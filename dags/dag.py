@@ -60,4 +60,4 @@ send_email_task = PythonOperator(
     dag=dag
     )
 
-sftp_task1 >> exec_task1 >> send_email_task
+sftp_task1 >> exec_task1 >> sftp_task2 >> exec_task2 >> send_email_task
