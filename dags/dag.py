@@ -21,23 +21,6 @@ dag = DAG(
 # Создаем SSHHook для доступа к удаленному серверу
 ssh_hook = SSHHook(ssh_conn_id='my_ssh_conn_id')
 
-
-sftp_task1 = SFTPOperator(
-    task_id='sftp_transfer_gen',
-    ssh_hook=ssh_hook,
-    local_filepath='/home/admin/airflow/gen.py',
-    remote_filepath='/home/ubuntu/gen.py',
-    operation='put',
-    dag=dag,
-)
-
-exec_task1 = SSHOperator(
-    task_id="run_gen",
-    cmd_timeout=7200,	
-    command='spark-submit gen.py',
-    ssh_hook=ssh_hook,
-    dag=dag)
-
 sftp_task2 = SFTPOperator(
     task_id='sftp_transfer_app',
     ssh_hook=ssh_hook,
@@ -60,4 +43,4 @@ send_email_task = PythonOperator(
     dag=dag
     )
 
-sftp_task1 >> exec_task1 >> sftp_task2 >> exec_task2 >> send_email_task
+sftp_task2 >> exec_task2 >> send_email_task
