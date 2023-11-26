@@ -127,7 +127,7 @@ __sftp_task1 >> exec_task2 >> send_email_task__
 3. Получен ценный опыт в MLOps и достигнут значительный uplift в hard skills автора
 4. Пополнен стек мемов, которые автор теперь понимает :)
 
-
+<image src="mem.png" alt="mem">
 
 
 
